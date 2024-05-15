@@ -7,3 +7,39 @@
     })
 
 </script>
+
+<style>
+    .row {
+      display: flex;
+    }
+    
+    .column {
+      flex: 33.33%;
+      padding: 5px;
+    }
+    </style>
+    <div>Do the two drawings have the same stress?<br></div>
+    
+    <div class="row">
+    
+    <div class="column">
+    <img style="max-width: 450px; max-height: 300px" id="left" alt="Network drawing" src="${lm://Field/1}">
+    </div>
+    
+    <div class="column">
+    <img style="max-width: 450px; max-height: 300px" id="right" alt="Network drawing" src="${lm://Field/2}">
+    </div>
+    
+    </div>
+    
+    <script>
+      let req = "${lm://Field/1}";
+      console.log(`http://jacob253.pythonanywhere.com/get_graph/` + req);
+      fetch(`https://jacob253.pythonanywhere.com/get_graph/` + req).then(response => {
+        response.json().then(data => {
+           document.getElementById("left").src = data.left;
+           document.getElementById("right").src = data.right;
+        })
+    });
+    
+    </script>
