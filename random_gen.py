@@ -10,7 +10,7 @@ def apsp(G,weights=None):
 
 for size in [10,25,50]:
     for stress in range(40,85,5):
-        for gnum in range(1,6):
+        for gnum in range(6,7):
             for draw in 'abc':
                 G,_ = gt.geometric_graph(np.random.uniform(0,1,size=(size,2)), 0.4)
                 d = apsp(G)
